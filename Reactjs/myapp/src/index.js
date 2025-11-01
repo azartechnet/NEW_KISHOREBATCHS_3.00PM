@@ -363,7 +363,7 @@ r1.render(<Garage/>)*/
 
 //React using key
 
-function Car(props)
+/*function Car(props)
 {
   return<li>{props.id}{props.name}</li>
 }
@@ -384,4 +384,73 @@ function Garage()
   )
 }
 const r1=ReactDOM.createRoot(document.getElementById('root'))
-r1.render(<Garage/>)
+r1.render(<Garage/>)*/
+//Destructring state in class component
+/*class Welcome extends React.Component
+{
+  render()
+  {
+    const {name,age}=this.props;
+    return(
+      <div>
+        <h1>Hello{name}</h1>
+        <h2>Age is {age}</h2>
+      </div>
+    )
+  }
+}
+export default function App()
+{
+  return(<Welcome name="azar" age={30}/>)
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<App/>)*/
+
+/*class Profile extends React.Component
+{
+  constructor()
+  {
+     super();
+     this.state={
+      name:"azar",
+      age:38
+     }
+  }
+  render()
+  {
+    const {name,age}=this.state;
+    return(
+      <div>
+        <h2>Name:{name}</h2>
+        <h3>Age is::{age}</h3>
+      </div>
+    )
+  }
+}
+export default Profile;
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Profile/>)*/
+
+//Destructuring in Array
+
+function Skills()
+{
+  const skills=["java","python","c++"];
+  const [first,second,third]=skills;
+  return(
+    <div>
+      <h3>Skills</h3>
+      <ul>
+        <li>{first}</li>
+        <li>{second}</li>
+        <li>{third}</li>
+      </ul>
+    </div>
+  )
+}
+
+export default Skills;
+
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Skills/>)
+
