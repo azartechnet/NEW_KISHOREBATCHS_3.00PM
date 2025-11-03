@@ -433,7 +433,7 @@ r1.render(<Profile/>)*/
 
 //Destructuring in Array
 
-function Skills()
+/*function Skills()
 {
   const skills=["java","python","c++"];
   const [first,second,third]=skills;
@@ -452,5 +452,5 @@ function Skills()
 export default Skills;
 
 const r1=ReactDOM.createRoot(document.getElementById('root'))
-r1.render(<Skills/>)
+r1.render(<Skills/>)*/
 
