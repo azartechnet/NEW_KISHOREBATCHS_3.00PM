@@ -454,3 +454,126 @@ export default Skills;
 const r1=ReactDOM.createRoot(document.getElementById('root'))
 r1.render(<Skills/>)*/
 
+//getDerivedStateFromProps
+
+/*class Header extends React.Component
+{
+    constructor(props)
+    {
+      super(props);
+      this.state={count:0};
+    }
+    static getDerivedStateFromProps(props,state)
+    {
+      console.log("getDerivedStateFromProps")
+      return{count:props.count}
+    }
+    render()
+    {
+      return(
+        <div>
+          <h1>Header</h1>
+          <p>Count:{this.state.count}</p>
+        </div>
+      )
+    }
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Header count={10}/>);*/
+
+//ComponentDidMount
+
+/*class Header extends React.Component
+{
+  constructor(props)
+  {
+    super(props);
+    this.state={favcolor:"red"}
+  }
+  componentDidMount()
+  {
+     console.log("ComponentDidMount")
+     setTimeout(()=>{
+      this.setState({favcolor:"blue"})
+     },6000)
+  }
+  render()
+  {
+    return(
+      <div>
+        <h1>Header</h1>
+        <p>My Fav color::{this.state.favcolor}</p>
+      </div>
+    )
+  }
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Header/>)*/
+
+//Updating getDerivedStateFromProps
+
+/*class Header extends React.Component
+{
+  constructor(props)
+  {
+    super(props);
+    this.state={favcolor:"red"}
+  }
+  static getDerivedStateFromProps(props,state)
+  {
+    console.log("getDerivedFromProps")
+  }
+  changeColor=()=>{
+    this.setState({favcolor:"blue"})
+  }
+  render()
+  {
+    return(
+      <div>
+        <h1>Header</h1>
+        <p>MyFavcolor::{this.state.favcolor}</p>
+        <button onClick={this.changeColor}>ChangeColor</button>
+      </div>
+    )
+  }
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Header/>)*/
+
+//React Hooks
+
+import {useState,useEffect}from 'react';
+/*function Counter()
+{
+  const [count,setCount]=useState(0);
+  const [name,setName]=useState("mohamed");
+  return(
+    <div>
+      <p>Count::{count}</p>
+      <button onClick={()=>setCount(count+1)}>Increment</button>
+      <p>My Name is::{name}</p>
+      <button onClick={()=>setName("azar")}>ChangeName</button>
+    </div>
+  )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Counter/>)*/
+
+//React useEffect
+
+function ClickCounter()
+{
+  const [count,setCount]=useState(0);
+  useEffect(()=>{
+    document.title=`Clicked ${count} times`;
+  })
+  return(
+    <div>
+      <p>Count::{count}</p>
+      <button onClick={()=>setCount(count+1)}>Increment</button>
+      <button onClick={()=>setCount(count-1)}>Decrement</button>
+    </div>
+  )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<ClickCounter/>)
