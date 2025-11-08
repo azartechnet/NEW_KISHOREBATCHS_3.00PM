@@ -561,7 +561,7 @@ r1.render(<Counter/>)*/
 
 //React useEffect
 
-function ClickCounter()
+/*function ClickCounter()
 {
   const [count,setCount]=useState(0);
   useEffect(()=>{
@@ -576,4 +576,69 @@ function ClickCounter()
   )
 }
 const r1=ReactDOM.createRoot(document.getElementById('root'))
-r1.render(<ClickCounter/>)
+r1.render(<ClickCounter/>)*/
+
+//Another useState()
+
+/*function UserProfile()
+{
+  const [user,setUser]=useState({name:"mohamed",age:34,email:"mohamed@gmail.com"})
+  const updateEmail=()=>{
+    setUser({...user,email:"mohamed123@gmail.com"})
+  }
+  return(
+    <div>
+      <h1>Name:{user.name}</h1>
+      <h1>Age:{user.age}</h1>
+      <h1>Email:{user.email}</h1>
+      <button onClick={updateEmail}>updateEmail</button>
+    </div>
+  )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<UserProfile/>)*/
+
+//UseState Todolist
+
+/*function Todolist()
+{
+  const [todos,setTodos]=useState(["azar","mohamed","raja"])
+  const addTodo=()=>{
+    setTodos([...todos,"mohan"])
+  }
+  const deletTodo=(index)=>{
+    setTodos([...todos.slice(0,index),...todos.slice(index+1)])
+  }
+  return(
+    <div>
+      <h1>TodoList</h1>
+      <ul>
+        {todos.map((todo,index)=>
+           <li>{index}{todo}
+           <button onClick={()=>deletTodo(index)}>Delete</button>
+           </li>
+        )}
+      </ul>
+      <button onClick={addTodo}>Add</button>
+    </div>
+  )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Todolist/>)*/
+
+//Example 2 useEffect
+
+const Example2=()=>{
+  useEffect(()=>{
+    const timer=setInterval(()=>{
+      console.log("Time is running...")
+    },6000)
+
+    return()=>{
+      clearInterval(timer);
+      console.log("TimerCleared")
+    }
+  },[])
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Example2/>)
