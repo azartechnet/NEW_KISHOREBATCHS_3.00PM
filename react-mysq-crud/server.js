@@ -44,6 +44,36 @@ app.post("/addpost",(req,res)=>{
             console.log(err);
     })
 })
+//get posts
+
+app.get("/getposts",(req,res)=>{
+    let sql='select * from posts';
+    db.query(sql,(err,results)=>{
+        if(!err)
+            res.send(results)
+        else
+            console.log(err);
+    })
+})
+//update post
+app.put("/updatepost/:id",(req,res)=>{
+    let sql=`update posts set title='${req.body.title}', body='${req.body.body}' where id=${req.params.id}`;
+    db.query(sql,(err,results)=>{
+        if(!err)
+            res.send('Post updated...')
+        else
+            console.log(err);
+    })
+})
+//delete post
+app.delete('/deletepost/:id',(req,res)=>{
+    const {id}=req.params;
+    const sql=`delete from posts where id=?`;
+    db.query(sql,[id],(err,result)=>{
+          if(err)throw err;
+          res.send('posted deleted')
+    })
+})
 app.listen(port,()=>{
     console.log("Server is Running...")
 })
